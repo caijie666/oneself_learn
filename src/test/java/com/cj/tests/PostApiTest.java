@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class GetApiTest {
+public class PostApiTest {
 
     TestBase testBase;
     String host;
@@ -23,7 +23,7 @@ public class GetApiTest {
     RestClient restClient;
     CloseableHttpResponse closeableHttpResponse;
 
-    final static Logger log = Logger.getLogger(GetApiTest.class);
+    final static Logger log = Logger.getLogger(PostApiTest.class);
     final static int RESPNSE_STATUS_CODE_200 = 200;
 
     @BeforeClass
