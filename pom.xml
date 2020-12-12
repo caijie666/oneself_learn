@@ -27,8 +27,8 @@
                     <compilerVersion>1.8</compilerVersion>
                     <encoding>utf-8</encoding>
                     <!--源代码的编译-->
-                    <source>1.11</source>
-                    <target>1.11</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
 

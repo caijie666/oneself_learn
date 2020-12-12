@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *  请求方法代码封装
+ */
 public class RestClient {
 
     final static Logger log = Logger.getLogger(RestClient.class);

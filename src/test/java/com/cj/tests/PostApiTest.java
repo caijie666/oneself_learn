@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.cj.base.TestBase;
 import com.cj.data.Users;
 import com.cj.restClient.RestClient;
+import com.cj.util.TokenUtil;
 import com.cj.util.TestUtil;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.util.EntityUtils;
@@ -15,22 +16,22 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class PostApiTest {
+public class PostApiTest extends TestBase{
 
     TestBase testBase;
     String host;
     String url;
     RestClient restClient;
     CloseableHttpResponse closeableHttpResponse;
+    TokenUtil saveToken;
 
     final static Logger log = Logger.getLogger(PostApiTest.class);
-    final static int RESPNSE_STATUS_CODE_200 = 200;
 
     @BeforeClass
     public void setUp(){
 
         testBase = new TestBase();
-        host = testBase.prop.getProperty("HOST");
+        host = prop.getProperty("SASS_HOST");
         url = host + "/doLoginFromVue";
 
     }
@@ -61,10 +62,19 @@ public class PostApiTest {
         // System.out.println(responseString);
         String realName = TestUtil.getLoginValueByJPath(responseString, "realName");
         String userName = TestUtil.getLoginValueByJPath(responseString, "userName");
-        Assert.assertEquals(realName, "cims管理员","name is not cims管理员");
-        Assert.assertEquals(userName, "cimsadmin","job is not cimsadmin");
+        Assert.assertEquals(realName,
+                "cims管理员",
+                "name is not cims管理员");
 
-
+        Assert.assertEquals(userName,
+                "cimsadmin",
+                "job is not cimsadmin");
+        // 断言没有问题，就可以把
+        String token = TestUtil.getLoginValueByJPath(responseString, "token");
+        // System.out.println(token);
+        // 保存token
+        saveToken = new TokenUtil();
+        Assert.assertEquals(saveToken.save(token), true, "token保存失败");
     }
 }
 

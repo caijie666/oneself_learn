@@ -6,6 +6,9 @@ import java.util.Properties;
 
 // 接口请求测试的父类
 public class TestBase {
+
+    public final static int RESPNSE_STATUS_CODE_200 = 200;
+
     public Properties prop;
 
     // 构造方法
