@@ -1,8 +1,9 @@
 package com.cj.tests;
 
-import com.alibaba.fastjson.JSONObject;
 import com.cj.base.TestBase;
+import com.cj.data.Page;
 import com.cj.restClient.RestClient;
+import com.cj.util.TestUtil;
 import com.cj.util.TokenUtil;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.log4j.Logger;
@@ -12,6 +13,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 public class GetApiTest extends TestBase {
 
@@ -57,8 +59,34 @@ public class GetApiTest extends TestBase {
         Assert.assertEquals(statusCode, RESPNSE_STATUS_CODE_200, "response status code is not 200");
 
         // 客户端通过httprespose对象的数据转换成Json
-        JSONObject responseJson = restClient.getResponseJson(closeableHttpResponse);
-        System.out.println(responseJson.toString());
-    }
+//        JSONObject responseJson = restClient.getResponseJson(closeableHttpResponse);
+//        System.out.println(responseJson.toString());
+//        Assert.assertEquals(responseJson != null, true, "responseJson不是null值");
+//
+//        // Json内容解析
+//        String s = TestUtil.getValueByJPath(responseJson, "data[0]/labName");
+//        System.out.println(s);
+//        String s = EntityUtils.toString(closeableHttpResponse.getEntity());
+//        ResponseEntity jsonToBean = JsonUtils.getJsonToBean(s, ResponseEntity.class);
+//        String data = (String) (jsonToBean.getData());
+//        Page jsonToBean1 = JsonUtils.getJsonToBean(data, Page.class);
+//        List list = jsonToBean1.getData();
+//        System.out.println(list.size());
+//        JSONObject datas = (JSONObject) jsonToBean.getData();
+//        String datas = ((JSONObject) jsonToBean.getData()).toJSONString();
+//        System.out.println(datas);
+//        Page data = JsonUtils.getJsonToBean(datas, Page.class);
+//        System.out.println(data.getTotal());
+//        System.out.println(data.getData());
+//
 
+        Page page = TestUtil.getPageValueByJson(closeableHttpResponse);
+
+        List list = page.getData();
+        System.out.println(list);
+        System.out.println(list.size());
+        System.out.println(list.get(0));
+
+
+    }
 }

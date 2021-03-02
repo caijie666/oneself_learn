@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map><!-- cims系统元素 -->
+
+    <page pageName="loginPage"><!-- 登录页面 -->
+        <!--position lists -->
+        <position type="xpath" timeOut="3" value="//*[@id='__layout']/div/div/div/div/div[2]/div[2]/div/div/div/form/div[1]/div/div/input">用户名输入框</position>
+        <position type="xpath" timeOut="3" value="//*[@id='__layout']/div/div/div/div/div[2]/div[2]/div/div/div/form/div[2]/div/div/input">密码输入框</position>
+        <position type="xpath" timeOut="3" value="//*[@id='__layout']/div/div/div/div/div[2]/div[2]/div/div/div/form/div[3]/div/button">登录按钮</position>
+    </page>
+
+    <page pageName="mainPage"><!-- 主页面 -->
+        <!--position lists -->
+        <position type="xpath" timeOut="8" value="//*[@id='__layout']/div/div/div/div/div[2]/div[2]/div/section/div[1]/div[1]/div[2]/div[1]/p">仓库库存</position>
+        <position type="xpath" timeOut="8" value="//*[@id='__layout']/div/div/div/div/div[2]/div[2]/div/section/div[1]/div[1]/div[2]/div[2]/p">实验室库存</position>
+        <position type="xpath" timeOut="8" value="//*[@id='__layout']/div/div/div/div/div[2]/div[2]/div/section/div[1]/div[2]/div[2]/p">商品种类</position>
+        <position type="xpath" timeOut="8" value="//*[@id='__layout']/div/div/div/div/div[2]/div[2]/div/section/div[1]/div[3]/div[2]/div[1]/div[1]/p">待审批申购表</position>
+        <position type="xpath" timeOut="8" value="//*[@id='__layout']/div/div/div/div/div[2]/div[2]/div/section/div[1]/div[3]/div[2]/div[1]/div[2]/p">待申请审批申请表</position>
+        <position type="xpath" timeOut="8" value="//*[@id='__layout']/div/div/div/div/div[2]/div[2]/div/section/div[1]/div[3]/div[2]/div[2]/div/p">待审批询价单</position>
+    </page>
+
+    <page pageName="docQueryPage"><!-- 目录页面 -->
+        <position type="xpath" timeOut="5" value="//*[@id='menu']/div[8]/li/div">商品管理</position>
+        <position type="xpath" timeOut="3" value="//*[@id='menu']/div[8]/li/ul/li">商品列表</position>
+    </page>
+
+</map>
